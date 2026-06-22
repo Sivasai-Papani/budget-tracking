@@ -8,8 +8,12 @@ const app = express();
 const PORT = Number(process.env.PORT || 5001);
 const VALID_CURRENCIES = ['GBP', 'INR'];
 const VALID_LOAN_STATUSES = ['active', 'paused', 'paid'];
+const corsOrigin = process.env.CORS_ORIGIN
+  ? process.env.CORS_ORIGIN.split(',').map((origin) => origin.trim()).filter(Boolean)
+  : undefined;
 
-app.use(cors());
+app.set('trust proxy', 1);
+app.use(cors(corsOrigin ? { origin: corsOrigin } : undefined));
 app.use(express.json());
 
 class ApiError extends Error {

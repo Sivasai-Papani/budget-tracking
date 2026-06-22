@@ -1,6 +1,10 @@
 node_modules/
 dist/
 .env
+.env.local
+.env.production
+!.env.example
+!.env.production.example
 .DS_Store
 data/*.sqlite
 data/*.sqlite-*
