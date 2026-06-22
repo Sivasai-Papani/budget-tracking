@@ -6,7 +6,7 @@ services:
     environment:
       PORT: 5001
       DB_FILE: /app/data/budget.sqlite
-      EXCHANGE_GBP_TO_INR: 105
+      EXCHANGE_GBP_TO_INR: 120
     ports:
       - "5001:5001"
     volumes:
