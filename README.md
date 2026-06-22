@@ -184,6 +184,13 @@ After copying new code or pulling changes:
 docker compose --env-file .env.production -f docker-compose.prod.yml up -d --build
 ```
 
+If Docker keeps reusing an old failed build layer, rebuild without cache:
+
+```bash
+docker compose --env-file .env.production -f docker-compose.prod.yml build --no-cache
+docker compose --env-file .env.production -f docker-compose.prod.yml up -d
+```
+
 ### Backup SQLite Data
 
 The production database lives in `data/budget.sqlite`. Back it up before server changes:
