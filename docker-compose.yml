@@ -1,0 +1,24 @@
+services:
+  backend:
+    build:
+      context: ./backend
+    container_name: budget-tracker-backend
+    environment:
+      PORT: 5001
+      DB_FILE: /app/data/budget.sqlite
+      EXCHANGE_GBP_TO_INR: 105
+    ports:
+      - "5001:5001"
+    volumes:
+      - ./data:/app/data
+
+  frontend:
+    build:
+      context: ./frontend
+    container_name: budget-tracker-frontend
+    environment:
+      VITE_PROXY_TARGET: http://backend:5001
+    ports:
+      - "5173:5173"
+    depends_on:
+      - backend

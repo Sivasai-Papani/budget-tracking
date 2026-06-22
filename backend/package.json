@@ -1,0 +1,16 @@
+{
+  "name": "personal-budget-backend",
+  "version": "1.0.0",
+  "description": "Express and SQLite API for a local personal budget and debt tracker.",
+  "main": "src/server.js",
+  "scripts": {
+    "dev": "node --watch src/server.js",
+    "start": "node src/server.js"
+  },
+  "dependencies": {
+    "better-sqlite3": "^11.8.1",
+    "cors": "^2.8.5",
+    "express": "^4.18.3"
+  },
+  "devDependencies": {}
+}
